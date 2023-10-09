@@ -12,6 +12,15 @@
 # 7) User can go to cart and checkout
 # 8) After checkout, the quantity of items are updated in item_info table automatically
 
+# Concepts used:
+# 1) Functions and methods.
+# 2) MySQL Database connection through python.
+# 3) Different MySQL queries.
+# 4) Dictionary to show cart details.
+# 5) Loops and conditional statements.
+# 6) Object oriented programming.
+# 7) Different levels of scopes.
+
 
 import mysql.connector
 from tkinter import *
@@ -23,9 +32,9 @@ class store:
         self.item_quantity = quantity
         self.item_shelf_num = shelf_num
 
-    # adds details to database
+    # Adds details to database
     def set_details(self):
-        # adds details to database
+        # Adds details to database
         # Need to append these details to database
         mydb = mysql.connector.connect(host='localhost', user='root', passwd='Stan@6123', database='abhishek')
         mycursor = mydb.cursor()
@@ -34,7 +43,7 @@ class store:
         mycursor.close()
         print('details uploaded to database')
 
-    #retrieves details from database
+    # Retrieves details from database
     def get_details(self,search_item):
         mydb = mysql.connector.connect(host='localhost', user='root', passwd='Stan@6123', database='abhishek')
         mycursor = mydb.cursor()
@@ -53,7 +62,7 @@ class store:
             s_item_to_s_details()
         mycursor.close()
 
-#gui fuction
+# GUI fuction
 def firstpage_gui():
     global main_window
     main_window = Tk()
@@ -62,15 +71,15 @@ def firstpage_gui():
     Button(main_window, text='Login', command=firstpage_to_login).grid(row=2, column=0)
     main_window.mainloop()
 
-#this is a transition fuction
-#this fuction destroys the previous window and calls the next fuction
-# mainly i used this to reuse the gui windows multiple times
+# This is a transition fuction
+# This fuction destroys the previous window and calls the next fuction
+# Mainly i used this to reuse the gui windows multiple times
 def firstpage_to_signup():
     main_window.destroy()
     signup_gui()
 
 
-#transition fuction
+# Transition fuction
 def firstpage_to_login():
     main_window.destroy()
     login_gui()
@@ -92,7 +101,7 @@ def signup_gui():
     Button(signup_window, text='Signup', command=signup).grid(row=3, column=1)
     signup_window.mainloop()
 
-# adds the signup details to database
+# Adds the signup details to database
 def signup():
     mydb = mysql.connector.connect(host='localhost', user='root', passwd='Stan@6123', database='abhishek')
     mycursor = mydb.cursor()
@@ -123,8 +132,8 @@ def login_gui():
     Button(login_window, text='Login', command=login).grid(row=3, column=1)
     login_window.mainloop()
 
-# checks if signup details match with login details
-#if matches goes to the next page
+# Checks if signup details match with login details
+# If matches goes to the next page
 def login():
     global item_info
     item_info = Username.get() + '2'
@@ -146,7 +155,7 @@ def login():
         login_gui()
 
 
-#deletes old cart table and creates new cart table
+# Deletes old cart table and creates new cart table
 def cart_refresh():
     mydb = mysql.connector.connect(host='localhost', user='root', passwd='Stan@6123', database='abhishek')
     mycursor = mydb.cursor()
@@ -166,8 +175,8 @@ def cart_refresh():
 
     mycursor.close()
 
-#user can add items here
-#he can search item details here
+# User can add items here
+# User can search item details here
 def afterlogin_gui():
     global afterlogin_window
     afterlogin_window = Tk()
@@ -184,7 +193,7 @@ def afterlogin_to_searchitem():
     afterlogin_window.destroy()
     searchitem_gui()
 
-#when he adds details here, object is created and items are added to database
+# When user adds details here, object is created and items are added to database
 def additem_gui():
     global additem_window
     additem_window = Tk()
@@ -232,7 +241,7 @@ def searchitem_gui():
     Button(searchitem_window, text='Search', command=searchitem_to_searchdetails).grid(row=5, column=1)
     searchitem_window.mainloop()
 
-#user can search details of added items such as item quantity available, shelf number and its price
+# User can search details of added items such as item quantity available, shelf number and its price
 def searchitem_to_searchdetails():
     globals()['obj'].get_details(search_item.get())
     print('get details called')
@@ -294,7 +303,7 @@ def searchdetails_to_cart():
     cart_gui()
 
 
-# i implemented dictionary to show values
+# I implemented dictionary to show values
 def cart_gui():
     global cart_window
     cart_window = Tk()
@@ -330,7 +339,7 @@ def cart_to_receipt():
     update_table()
     receipt_gui()
 
-#this updates the quantity available in the item_info table after checkout
+# This updates the quantity available in the item_info table after checkout
 def update_table():
     mydb = mysql.connector.connect(host='localhost', user='root', passwd='Stan@6123', database='abhishek')
     mycursor = mydb.cursor()
@@ -399,7 +408,7 @@ def cart_delete():
     mydb.commit()
     mycursor.close()
 
-#starting point of execution
+# Starting point of execution
 def main():
     firstpage_gui()
 
