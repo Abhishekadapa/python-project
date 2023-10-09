@@ -19,7 +19,7 @@
 # 4) Dictionary to show cart details.
 # 5) Loops and conditional statements.
 # 6) Object oriented programming.
-# 7) Different levels of scopes.
+# 7) Different levels of scope.
 
 
 import mysql.connector
