@@ -1,17 +1,16 @@
 # This is a store management software
-# i used tkinter to implement gui
-# and my sql as a database
+# I used tkinter to implement GUI and MySQL as a database
+# I focused mainly on the backend logic and used simple GUI buttons to navigate this software
 
-# user can first signup
-# then he can login
-# he can add item details such as item name, quantity adding, price and shelf number
-# the details are stored in a database table
-
-# then he can search the item name and all the details of item are retrieved from database
-# he can add item to cart
-# he can search another item
-# he can go to cart
-# he can checkout from cart which will update the quantity in item_info table
+# Features:
+# 1) user can first signup
+# 2) User can login
+# 3) User can add item details such as item name, quantity adding, price and shelf number
+# 4) The details are stored in a database table and updated every time he make a sale
+# 5) User can search the item name and all the details of item are retrieved from database
+# 6) User can add item to cart
+# 7) User can go to cart and checkout
+# 8) After checkout, the quantity of items are updated in item_info table automatically
 
 
 import mysql.connector
