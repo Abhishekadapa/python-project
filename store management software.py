@@ -1,16 +1,16 @@
 # This is a store management software
+
 # I used tkinter to implement GUI and MySQL as a database
 # I focused mainly on the backend logic and used simple GUI buttons to navigate this software
 
 # Features:
-# 1) user can first signup
-# 2) User can login
-# 3) User can add item details such as item name, quantity adding, price and shelf number
-# 4) The details are stored in a database table and updated every time he make a sale
-# 5) User can search the item name and all the details of item are retrieved from database
-# 6) User can add item to cart
-# 7) User can go to cart and checkout
-# 8) After checkout, the quantity of items are updated in item_info table automatically
+# User signup functionality.
+# User login functionality.
+# Ability to add item details (name, quantity, price, shelf number) to the database.
+# Item search functionality.
+# Add items to cart.
+# Cart checkout.
+# Automatic database update after each sale.
 
 # Concepts used:
 # 1) Functions and methods.
@@ -72,7 +72,7 @@ def firstpage_gui():
     main_window.mainloop()
 
 # This is a transition fuction
-# This fuction destroys the previous window and calls the next fuction
+# This fuction destroys the previous window and calls the next function
 # Mainly i used this to reuse the gui windows multiple times
 def firstpage_to_signup():
     main_window.destroy()
